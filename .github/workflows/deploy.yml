@@ -1,0 +1,58 @@
+# Build & deploy the portfolio to GitHub Pages on every push to main.
+# This workflow is itself a portfolio piece — kept clean and commented.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+# Grant the minimum permissions Pages deployment needs
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deployments at once; don't cancel a production deploy mid-flight
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies (clean, reproducible)
+        run: npm ci
+
+      - name: Run UI tests
+        run: npm test
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload build artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

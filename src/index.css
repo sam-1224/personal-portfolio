@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem; /* keep anchored sections clear of sticky nav */
+  }
+  body {
+    @apply bg-base-100 text-base-content/80 antialiased;
+  }
+  ::selection {
+    @apply bg-primary/30;
+  }
+}
+
+@layer components {
+  /* Scroll-reveal: hidden until IntersectionObserver adds .is-visible */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .card-hover,
+    .icon-hover {
+      transition: none !important;
+    }
+  }
+
+  .section-label {
+    @apply font-mono text-sm text-primary mb-3 block;
+  }
+
+  .chip {
+    @apply inline-block rounded-full border border-base-content/15 bg-base-content/5 px-2.5 py-0.5 font-mono text-xs text-base-content/70 transition-colors duration-200 hover:border-primary/60 hover:text-base-content;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100;
+  }
+
+  /* Mouse-reactive card: lifts + glows toward the theme's primary color */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10;
+  }
+
+  /* Mouse-reactive icon/link */
+  .icon-hover {
+    @apply transition-all duration-200 hover:scale-110 hover:text-primary;
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saumitra Dubey — AI-Native SDET &amp; Software Engineer</title>
+    <meta
+      name="description"
+      content="QA engineer who tests AI in production and builds it — LLM agents, RAG systems, test automation, and full-stack apps. Open to SDET, QA, and SDE roles."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sam-1224.github.io/portfolio/" />
+    <meta property="og:title" content="Saumitra Dubey — AI-Native SDET &amp; Software Engineer" />
+    <meta
+      property="og:description"
+      content="I test AI in production. I also build it. LLM agents, RAG systems, test automation, full-stack apps."
+    />
+    <meta property="og:image" content="https://sam-1224.github.io/portfolio/og-image.png" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saumitra Dubey — AI-Native SDET &amp; Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="I test AI in production. I also build it. LLM agents, RAG systems, test automation, full-stack apps."
+    />
+    <meta name="twitter:image" content="https://sam-1224.github.io/portfolio/og-image.png" />
+
+    <!-- Fonts: Inter (UI) + JetBrains Mono (code accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply saved daisyUI theme before paint to avoid flash; 'dark' is default -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        var themes = ['dark','night','synthwave','dracula','sunset','dim','light','corporate','retro','nord'];
+        if (themes.indexOf(t) !== -1) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
