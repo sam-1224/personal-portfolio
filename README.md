@@ -4,7 +4,7 @@ Personal portfolio of **Saumitra Dubey** — AI-native SDET & Software Engineer.
 
 > "I test AI in production. I also build it."
 
-**Live:** https://sam-1224.github.io/portfolio/
+**Live:** https://sam-1224.github.io/personal-portfolio/
 
 ![Screenshot](docs/screenshot.png)
 <!-- TODO: replace docs/screenshot.png after first deploy -->
@@ -23,7 +23,7 @@ No animation libraries — CSS transitions + a small IntersectionObserver hook.
 
 ```bash
 npm install
-npm run dev      # dev server at http://localhost:5173/portfolio/
+npm run dev      # dev server at http://localhost:5173/personal-portfolio/
 npm run build    # production build → dist/
 npm run preview  # preview the production build
 npm test         # UI smoke & interaction tests (Vitest + Testing Library)

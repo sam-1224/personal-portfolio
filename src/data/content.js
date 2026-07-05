@@ -164,5 +164,5 @@ export const achievements = [
 
 export const footer = {
   line: 'Open to SDET, QA, and SDE roles.',
-  repo: 'https://www.github.com/sam-1224/portfolio',
+  repo: 'https://www.github.com/sam-1224/personal-portfolio',
 }
