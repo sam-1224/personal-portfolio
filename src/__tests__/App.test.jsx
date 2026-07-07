@@ -25,6 +25,20 @@ describe('rendering', () => {
     expect(h1s[0].textContent).toContain('I test AI in production.')
   })
 
+  it('renders the typewriter with caret and space reserved for every phrase', () => {
+    render(<App />)
+    const h1 = screen.getAllByRole('heading', { level: 1 })[0]
+    // Blinking caret present
+    expect(h1.querySelector('.tw-cursor')).toBeTruthy()
+    // Every rotating phrase is stacked invisibly to reserve height (no layout jump)
+    const reserved = h1.querySelectorAll('.invisible.col-start-1.row-start-1')
+    expect(reserved.length).toBeGreaterThanOrEqual(5)
+    // Screen readers still get the stable full headline
+    expect(h1.querySelector('.sr-only').textContent).toBe(
+      'I test AI in production. I also build it.',
+    )
+  })
+
   it('renders all main sections', () => {
     render(<App />)
     for (const id of ['about', 'experience', 'projects', 'skills', 'achievements', 'contact']) {

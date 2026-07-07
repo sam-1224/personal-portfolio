@@ -1,16 +1,35 @@
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react'
 import { hero, meta } from '../data/content.js'
+import useTypewriter from '../hooks/useTypewriter.js'
 
 export default function Hero() {
+  const typed = useTypewriter(hero.typewriter)
+
   return (
     <section id="top" className="mx-auto max-w-content px-4 pb-20 pt-16 sm:px-6 sm:pt-24">
       <div className="max-w-3xl">
         <p className="mb-4 font-mono text-sm text-primary">{hero.greeting}</p>
         <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-base-content sm:text-5xl">
-          I test AI in production.
-          <br />
-          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            I also build it.
+          {/* Screen readers get the stable headline; the animation is decorative. */}
+          <span className="sr-only">{hero.headline}</span>
+          <span aria-hidden="true" className="grid">
+            {/* Every phrase stacked invisibly in the same grid cell reserves
+                the tallest phrase's height, so the layout never jumps. */}
+            {hero.typewriter.map((phrase) => (
+              <span key={phrase} className="invisible col-start-1 row-start-1">
+                {phrase}
+              </span>
+            ))}
+            <span className="col-start-1 row-start-1">
+              {typed}
+              <span className="tw-cursor" />
+            </span>
+          </span>
+          <span
+            aria-hidden="true"
+            className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >
+            {hero.tagline}
           </span>
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed sm:text-lg">{hero.subline}</p>

@@ -58,4 +58,27 @@
   .icon-hover {
     @apply transition-all duration-200 hover:scale-110 hover:text-primary;
   }
+
+  /* Blinking caret for the hero typewriter */
+  .tw-cursor {
+    @apply ml-1 inline-block bg-primary align-middle;
+    width: 3px;
+    height: 0.8em;
+    animation: tw-blink 1.1s steps(1, end) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tw-cursor {
+      animation: none;
+    }
+  }
+}
+
+@keyframes tw-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
