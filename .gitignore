@@ -44,3 +44,6 @@ desktop.ini
 # Caveman/Amp skills
 .agents/
 skills-lock.json
+
+# Claude
+.claude
