@@ -8,7 +8,10 @@ export const meta = {
   email: 'saumitradubey1224@gmail.com',
   github: 'https://www.github.com/sam-1224',
   linkedin: 'https://www.linkedin.com/in/saumitra-dubey-b64a49280/',
-  resume: 'resume.pdf', // relative → works under the /portfolio/ base path
+  // Absolute path via Vite's base URL (e.g. "/personal-portfolio/resume.pdf").
+  // A bare relative "resume.pdf" 404s from any route that isn't the base with a
+  // trailing slash, which broke every Download Resume button.
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
 }
 
 export const hero = {
