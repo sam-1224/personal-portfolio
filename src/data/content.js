@@ -17,6 +17,16 @@ export const meta = {
 export const hero = {
   greeting: '// QA Engineer @ BlueStacks · B.Tech CSE, IIIT Nagpur ’25',
   headline: 'I test AI in production. I also build it.',
+  tagline: 'I also build it.',
+  // Rotating typewriter phrases — first one matches the static headline so
+  // the page never flashes empty text before the animation starts.
+  typewriter: [
+    'I test AI in production.',
+    'SDET for the AI era — I test LLMs in production and build agents on the side.',
+    'I engineer the tests that let teams ship fast without fear.',
+    'I write code that tests code — including the AI kind.',
+    'I build software end to end — and test it like an adversary.',
+  ],
   subline:
     'AI-native quality engineer — 2 years shipping quality for an Android platform used by millions, while building LLM agents, RAG systems, and full-stack apps on the side.',
   stats: [
